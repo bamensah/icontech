@@ -128,7 +128,6 @@ class Sales_Report(models.Model):
         """ % (self._table)        
         return request
     
-    @api.model_cr
     def init(self):
         """
             This is special method and this is automatically call when class object is created.   
