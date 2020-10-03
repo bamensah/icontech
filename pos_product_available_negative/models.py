@@ -8,6 +8,7 @@ from odoo import models, fields, api
 class PosConfig(models.Model):
     _inherit = 'pos.config'
 
+    @api.model
     def _default_negative_stock_user(self):
         return self.env.ref('point_of_sale.group_pos_manager')
 
@@ -23,6 +24,7 @@ class PosOrder(models.Model):
         'res.users', string='Negative stock approval',
         help="Person who authorized a sale with a product which is out of a stock")
 
+    @api.model
     def _order_fields(self, ui_order):
         res = super(PosOrder, self)._order_fields(ui_order)
         res['negative_stock_user_id'] = ui_order['negative_stock_user_id']
